@@ -12,7 +12,7 @@ class modele_commande {
     public $adresse_client;
 
     /***
-     * Fonction permettant de construire un objet de type modele_produit
+     * Fonction permettant de construire un objet de type modele_commande
      */
     public function __construct($id, $client_id, $date_commande, $nom_client, $prenom_client, $telephone, $adresse, $ville, $code_postal, $province, $pays) {
         $this->id = $id;        
