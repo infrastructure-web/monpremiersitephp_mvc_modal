@@ -5,7 +5,7 @@ require_once __DIR__ . '/../modeles/commandes.php';
 class ControleurCommandes {
     
     /***
-     * Fonction permettant de récupérer l'ensemble des commandes et de les afficher sous forme de tableau avec boutons d'actions
+     * Fonction permettant de récupérer l'ensemble des commandes et de les afficher sous forme de tableau
      */
     function afficherListeCommandes() {
         $commandes = modele_commande::ObtenirTous();
