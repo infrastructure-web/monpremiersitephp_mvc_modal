@@ -31,7 +31,7 @@ class modele_client {
     }
 
     /***
-     * Fonction permettant de récupérer l'ensemble des produits 
+     * Fonction permettant de récupérer l'ensemble des clients 
      */
     public static function ObtenirTous() {
         $liste = [];
