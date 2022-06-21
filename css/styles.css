@@ -1,0 +1,81 @@
+html {
+    font-family: monospace;
+    margin: 0;
+    height: -webkit-fill-available; 
+    text-align: center;
+
+    /* Source: https: //uigradients.com/#CoolSky */
+    background: #2980B9;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+    min-height: 100vh;
+    margin:0;
+    padding: 0;
+    height: -webkit-fill-available;
+}
+
+.container {
+    width:960px;
+    margin:auto;
+}
+
+table,tr, td, th {
+    border: solid 1px rgb(227, 224, 224);
+    border-collapse: collapse;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td, th {
+    padding:10px;
+}
+
+h1 {
+    color:rgb(0, 6, 85);
+}
+
+h2 {
+    color: rgba(0, 6, 85);
+}
+
+label {
+    display:block; 
+}
+
+input, button, select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+nav, footer {
+    background-color:#fff;
+    margin:0;
+    height:40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin:0;
+}
+
+dialog {
+    border: 1px solid rgb(227, 223, 223);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+dialog::backdrop {
+    background: #000;
+    opacity: 0.7;
+}
