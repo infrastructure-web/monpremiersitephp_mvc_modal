@@ -33,7 +33,7 @@ function ouvrirDialogueEdition(id) {
             document.getElementById("dialogue-formulaire-edition-id").value = produit.id;
             document.getElementById("dialogue-formulaire-edition-code").value = produit.code;
             document.getElementById("dialogue-formulaire-edition-nom").value = produit.produit;
-            document.getElementById("dialogue-formulaire-edition-prix-unitaire").value = produit.prix_unitaire;
+            document.getElementById("dialogue-formulaire-edition-prix-unitaire").value = produit.prix_coutant;
             document.getElementById("dialogue-formulaire-edition-prix-vente").value = produit.prix_vente;
             document.getElementById("dialogue-formulaire-edition-qte-stock").value = produit.qte_stock;
 

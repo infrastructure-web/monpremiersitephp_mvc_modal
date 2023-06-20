@@ -16,9 +16,9 @@
 
         <div>
             <div>
-                <label for="prix_unitaire">Prix unitaire (coûtant) *</label>
+                <label for="prix_coutant">Prix unitaire (coûtant) *</label>
                 <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-                <input type="number" step=".01" id="dialogue-formulaire-edition-prix-unitaire" name="prix_unitaire" required value="<?= $produit->prix_unitaire ?>">
+                <input type="number" step=".01" id="dialogue-formulaire-edition-prix-unitaire" name="prix_coutant" required value="<?= $produit->prix_coutant ?>">
             </div>
             <div>
                 <label for="prix_vente">Prix de vente *</label>
