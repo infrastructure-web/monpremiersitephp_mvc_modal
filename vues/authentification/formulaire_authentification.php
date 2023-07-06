@@ -26,9 +26,10 @@
     <button onclick="document.getElementById('dialog_login').showModal();">Connexion</button>
 
 <?php } else { ?>
-    Vous êtes connecté en tant que <?= $_SESSION["utilisateur"] ?> 
-        
+    
     <form method="POST">
+        Vous êtes connecté en tant que <?= $_SESSION["utilisateur"] ?> 
+        
         <button name="boutonDeconnexion" type="submit">Déconnexion</button>
     </form>
 <?php } ?>
