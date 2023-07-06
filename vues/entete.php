@@ -9,7 +9,10 @@
  </head>
  <body>
     <nav> 
-        Une navigation ici... 
-        <a href="produits.php">Produits</a>
+      Une navigation ici... 
+       <a href="produits.php">Produits</a>
       <a href="commandes.php">Commandes</a>
+        
+      <? require 'vues/authentification/formulaire_authentification.php'; ?>
     </nav>
+

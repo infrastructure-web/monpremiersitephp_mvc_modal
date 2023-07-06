@@ -3,7 +3,8 @@
         foreach ($clients as $client) {
     ?>
         <option value="<?= $client->id ?>">
-            <?= $client->nom_complet ?>
+             <?= $client->nom_complet ?> (<?= $client->id ?>)
+        </option>
     <?php
         }
     ?>

@@ -79,3 +79,7 @@ dialog::backdrop {
     background: #000;
     opacity: 0.7;
 }
+
+.erreur {
+    color:red;
+}
