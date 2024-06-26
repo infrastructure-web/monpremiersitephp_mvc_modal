@@ -4,18 +4,16 @@ require_once __DIR__ . '../../include/config.php';
 
 class modele_produit {
     public $id; 
-    public $code; 
-    public $produit;
+    public $nom;
     public $prix_vente;
     public $qte_stock;
 
     /***
      * Fonction permettant de construire un objet de type modele_produit
      */
-    public function __construct($id, $code, $produit, $prix_coutant, $prix_vente, $qte_stock) {
+    public function __construct($id, $nom, $prix_coutant, $prix_vente, $qte_stock) {
         $this->id = $id;
-        $this->code = $code;
-        $this->produit = $produit;
+        $this->nom = $nom;
         $this->prix_coutant = $prix_coutant;
         $this->prix_vente = $prix_vente;
         $this->qte_stock = $qte_stock;
@@ -44,10 +42,10 @@ class modele_produit {
         $liste = [];
         $mysqli = self::connecter();
 
-        $resultatRequete = $mysqli->query("SELECT id, code, produit, prix_coutant, prix_vente, qte_stock FROM produits ORDER BY code");
+        $resultatRequete = $mysqli->query("SELECT id, nom, prix_coutant, prix_vente, qte_stock FROM produits ORDER BY nom");
 
         foreach ($resultatRequete as $enregistrement) {
-            $liste[] = new modele_produit($enregistrement['id'], $enregistrement['code'], $enregistrement['produit'], $enregistrement['prix_coutant'], $enregistrement['prix_vente'], $enregistrement['qte_stock']);
+            $liste[] = new modele_produit($enregistrement['id'], $enregistrement['nom'], $enregistrement['prix_coutant'], $enregistrement['prix_vente'], $enregistrement['qte_stock']);
         }
 
         return $liste;
@@ -67,7 +65,7 @@ class modele_produit {
             $result = $requete->get_result(); // Récupération de résultats de la requête¸
             
             if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
-                $produit = new modele_produit($enregistrement['id'], $enregistrement['code'], $enregistrement['produit'], $enregistrement['prix_coutant'], $enregistrement['prix_vente'], $enregistrement['qte_stock']);
+                $produit = new modele_produit($enregistrement['id'], $enregistrement['nom'], $enregistrement['prix_coutant'], $enregistrement['prix_vente'], $enregistrement['qte_stock']);
             } else {
                 //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
                 return null;
@@ -86,20 +84,20 @@ class modele_produit {
     /***
      * Fonction permettant d'ajouter un produit
      */
-    public static function ajouter($code, $nom, $prix_coutant, $prix_vente, $qte_stock) {
+    public static function ajouter($nom, $prix_coutant, $prix_vente, $qte_stock) {
         $message = '';
 
         $mysqli = self::connecter();
         
         // Création d'une requête préparée
-        if ($requete = $mysqli->prepare("INSERT INTO produits(code, produit, prix_coutant, prix_vente, qte_stock) VALUES(?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO produits(nom, prix_coutant, prix_vente, qte_stock) VALUES(?, ?, ?, ?)")) {      
 
         /************************* ATTENTION **************************/
         /* On ne fait présentement peu de validation des données.     */
         /* On revient sur cette partie dans les prochaines semaines!! */
         /**************************************************************/
 
-        $requete->bind_param("ssddi", $code, $nom, $prix_coutant, $prix_vente, $qte_stock);
+        $requete->bind_param("sddi", $nom, $prix_coutant, $prix_vente, $qte_stock);
 
         if($requete->execute()) { // Exécution de la requête
             $message = "Produit ajouté";  // Message ajouté dans la page en cas d'ajout réussi
@@ -122,20 +120,20 @@ class modele_produit {
     /***
      * Fonction permettant d'éditer un produit
      */
-    public static function editer($id, $code, $nom, $prix_coutant, $prix_vente, $qte_stock) {
+    public static function editer($id, $nom, $prix_coutant, $prix_vente, $qte_stock) {
         $message = '';
 
         $mysqli = self::connecter();
         
         // Création d'une requête préparée
-        if ($requete = $mysqli->prepare("UPDATE produits SET code=?, produit=?, prix_coutant=?, prix_vente=?, qte_stock=? WHERE id=?")) {      
+        if ($requete = $mysqli->prepare("UPDATE produits SET nom=?, prix_coutant=?, prix_vente=?, qte_stock=? WHERE id=?")) {      
 
         /************************* ATTENTION **************************/
         /* On ne fait présentement peu de validation des données.     */
         /* On revient sur cette partie dans les prochaines semaines!! */
         /**************************************************************/
 
-        $requete->bind_param("ssddii", $code, $nom, $prix_coutant, $prix_vente, $qte_stock, $id);
+        $requete->bind_param("sddii", $nom, $prix_coutant, $prix_vente, $qte_stock, $id);
 
         if($requete->execute()) { // Exécution de la requête
             $message = "Produit modifié";  // Message ajouté dans la page en cas d'ajout réussi

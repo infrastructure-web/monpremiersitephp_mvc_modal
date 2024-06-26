@@ -6,7 +6,7 @@ function ouvrirDialogueFiche(id) {
     const produit = getProduit(id).then(produit => { 
         console.log(produit);
         if (produit) {
-            document.getElementById("dialogue-fiche-nom").textContent = produit.produit;
+            document.getElementById("dialogue-fiche-nom").textContent = produit.nom;
 
             document.getElementById("dialogue-fiche-prix-vente").textContent = produit.prix_vente;
 
@@ -31,9 +31,8 @@ function ouvrirDialogueEdition(id) {
         if (produit) {
 
             document.getElementById("dialogue-formulaire-edition-id").value = produit.id;
-            document.getElementById("dialogue-formulaire-edition-code").value = produit.code;
-            document.getElementById("dialogue-formulaire-edition-nom").value = produit.produit;
-            document.getElementById("dialogue-formulaire-edition-prix-unitaire").value = produit.prix_coutant;
+            document.getElementById("dialogue-formulaire-edition-nom").value = produit.nom;
+            document.getElementById("dialogue-formulaire-edition-prix-coutant").value = produit.prix_coutant;
             document.getElementById("dialogue-formulaire-edition-prix-vente").value = produit.prix_vente;
             document.getElementById("dialogue-formulaire-edition-qte-stock").value = produit.qte_stock;
 
@@ -50,7 +49,7 @@ function ouvrirDialogueSuppression(id) {
     const produit = getProduit(id).then(produit => {
         console.log(produit);
         if (produit) {
-            document.getElementById("dialogue-suppression-nom").textContent = produit.produit;
+            document.getElementById("dialogue-suppression-nom").textContent = produit.nom;
             document.getElementById("dialogue-formulaire-suppression-id").value = produit.id;
 
             dialogue.showModal();

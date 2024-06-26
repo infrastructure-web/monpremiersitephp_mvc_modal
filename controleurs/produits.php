@@ -41,8 +41,8 @@ class ControleurProduits {
      * Fonction permettant d'ajouter un produit
      */
     function ajouter() {
-        if(isset($_POST['code']) && isset($_POST['nom']) && isset($_POST['prix_coutant']) && isset($_POST['prix_vente']) && isset($_POST['qte_stock'])) {
-            $message = modele_produit::ajouter($_POST['code'], $_POST['nom'], $_POST['prix_coutant'], $_POST['prix_vente'], $_POST['qte_stock']);
+        if(isset($_POST['nom']) && isset($_POST['prix_coutant']) && isset($_POST['prix_vente']) && isset($_POST['qte_stock'])) {
+            $message = modele_produit::ajouter($_POST['nom'], $_POST['prix_coutant'], $_POST['prix_vente'], $_POST['qte_stock']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter un produit. Des informations sont manquantes";
@@ -54,8 +54,8 @@ class ControleurProduits {
      * Fonction permettant de modifier un produit
      */
     function editer() {
-        if(isset($_POST['id'], $_POST['code']) && isset($_POST['nom']) && isset($_POST['prix_coutant']) && isset($_POST['prix_vente']) && isset($_POST['qte_stock'])) {
-            $message = modele_produit::editer($_POST['id'], $_POST['code'], $_POST['nom'], $_POST['prix_coutant'], $_POST['prix_vente'], $_POST['qte_stock']);
+        if(isset($_POST['id']) && isset($_POST['nom']) && isset($_POST['prix_coutant']) && isset($_POST['prix_vente']) && isset($_POST['qte_stock'])) {
+            $message = modele_produit::editer($_POST['id'], $_POST['nom'], $_POST['prix_coutant'], $_POST['prix_vente'], $_POST['qte_stock']);
             echo $message;
         } else {
             $erreur = "Impossible de modifier le produit. Des informations sont manquantes";

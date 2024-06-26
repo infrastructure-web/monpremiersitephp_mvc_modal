@@ -4,8 +4,7 @@
 <button onclick="ouvrirDialogueAjout()">Ajouter</button>
 
 <table>
-    <tr>
-        <th>Code</th>        
+    <tr>      
         <th>Nom du produit</th>        
         <th>Prix de vente</th>        
         <th>Quantité en stock</th>
@@ -16,8 +15,7 @@
         foreach ($produits as $produit) {
     ?>
         <tr>
-            <td><?= $produit->code ?></td>
-            <td><?= $produit->produit?></td>
+            <td><?= $produit->nom?></td>
             <td><?= $produit->prix_vente ?></td>
             <td><?= $produit->qte_stock ?></td>
             <td>

@@ -3,11 +3,6 @@
     <form method="POST">
         <div>
             <div>
-                <label for="code">Code *</label>
-                <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-                <input type="text" id="dialogue-formulaire-edition-code" name="code" required maxlength="25" value="<?= $produit->code ?>">
-            </div>
-            <div>
                 <label for="nom">Nom du produit *</label>
                 <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
                 <input type="text" id="dialogue-formulaire-edition-nom" name="nom" required minlength="2" maxlength="50" value="<?= $produit->produit ?>">
@@ -16,9 +11,9 @@
 
         <div>
             <div>
-                <label for="prix_coutant">Prix unitaire (coûtant) *</label>
+                <label for="prix_coutant">Prix coûtant *</label>
                 <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-                <input type="number" step=".01" id="dialogue-formulaire-edition-prix-unitaire" name="prix_coutant" required value="<?= $produit->prix_coutant ?>">
+                <input type="number" step=".01" id="dialogue-formulaire-edition-prix-coutant" name="prix_coutant" required value="<?= $produit->prix_coutant ?>">
             </div>
             <div>
                 <label for="prix_vente">Prix de vente *</label>
